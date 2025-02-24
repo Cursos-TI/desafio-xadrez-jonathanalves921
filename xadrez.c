@@ -1,39 +1,63 @@
 #include <stdio.h>
 
-int main() {
     //movimentação da torre
-for (int i = 0; i < 5; i++){
-    printf("Torre:");
-    printf("Direita!\n");//imprime o valor de 5 casas para direita
+void torre (int n) {
+    if (n > 0){
+        printf("Torre:Direita\n");
+        torre(n - 1);
+
+    }
 }
-printf("\n");
 
-int b = 0; //variavel do bispo
+//movimentação do bispo
 
-while(b < 5){ //faz o bispo andar 5 casas
-    printf("Bispo:");
-    printf("Direita, Cima!\n");//imprime o valor de cinco casas (direita diagonal)
-    b++;
+
+void bispo(int n){
+    if(n>0){
+        printf("Bispo:Direta, Cima\n");
+        bispo(n - 1);
+    }
 }
-printf("\n");
 
-int r = 0;//variavel da rainha
-do{
-    printf("Rainha:");
-    printf("Esquerda\n"); //imprime o valor de 8 casas para a direita
-    r++;
 
-}while (r < 8);
-printf("\n");
+
+//variavel da rainha
+
+void rainha(int n){
+    if (n > 0){
+        printf("Rainha: Esquerda\n");
+        rainha (n - 1);
+    }
+
+}
+
+int main(){
+    torre(5);
+    printf("\n");
+
+    bispo(5);
+    printf("\n");
+
+    rainha(8);
+    printf("\n");
+
 
 //movimentação do cavalo
-for (int l1 = 0; l1 < 1; l1++) {
-    for (int l2 = 0; l2 < 2; l2++) {
-        printf("Cavalo: Baixo\n");
-    }
-    printf("Cavalo: Direita\n");
+for (int i = 0, j = 0; i < 2 || j < 1;){
+if (i <2){
+    printf("Cavalo:Cima\n");
+    i++;
+    continue;
+}
+if (j < 1){
+    printf("Cavalo:Direita\n");
+    j++;
+    break;
+}
+
 }
 printf("\n");
+
     return 0;
 }
 
